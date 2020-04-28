@@ -1,0 +1,122 @@
+\documentclass[a4paper,8pt]{extarticle}
+\usepackage[landscape,margin=1cm]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+
+\usepackage{multicol}
+
+\begin{document}
+	\begin{multicols*}{4}
+
+		\noindent
+		{\LARGE Using :help command}\\\\
+		\begin{tabular}{ l l }
+			\textbf{:help \textsl{comm}}		&	- Normal mode comamnd  \\
+			\textbf{:help v\_\textsl{comm}}	&	- Visual mode command  \\
+			\textbf{:help i\_\textsl{comm}}	&	- Insert mode command  \\
+			\textbf{:\textsl{comm}}			&	- Command-line command \\
+			\textbf{:help c\_\textsl{comm}} 	&	- Command-line editing \\
+			\textbf{:help -\textsl{comm}}	 	&	- Vim command argument \\
+			\textbf{:help '\textsl{comm}'}	&	- Option			   \\
+			\textbf{:help /\textsl{comm}}		&	- Regular expression   \\
+			\textbf{:helpgrep \textsl{comm}}	&	- grep for commands	   \\
+		\end{tabular}
+
+		\noindent
+		Vim documentation movement commands\\
+		\begin{tabular}{ l l }
+			\textbf{CTRL- ]}	&	- follow the tag under the cursor  \\
+			\textbf{CTRL-T}	&	- jump back					\\
+		\end{tabular}\\\\
+
+		\noindent
+		{\LARGE Vim movement}\\
+		Can be prepended with number \(N\)\\\\
+		\begin{tabular}{ l l }
+			\textbf{h, j, k, l}		&	- movement keys 									\\
+			\textbf{f\textsl{char}}	&	- to next occurence of \textsl{char}					\\
+			\textbf{F\textsl{char}}	&	- to previous occurence of \textsl{char}				\\
+			\textbf{t\textsl{char}}	&	- till before next occurence of \textsl{char}			\\
+			\textbf{T\textsl{char}}	&	- till before previous occurence of \textsl{char}			\\
+			\textbf{;}			&	- repeat last \textbf{f, F, t, T}						\\
+			\textbf{,}			&	- repeat \textbf{f, F, t, T} in opposite direction		\\
+		\end{tabular}
+
+		\noindent
+		Left-right movement:\\
+		\begin{tabular}{ l l }
+			\textbf{0}			&	- first character in line 							\\
+			\textbf{\^}			&	- first nonblank character in line 					\\
+			\textbf{\$}			&	- last character in line 							\\
+			\textbf{g\textsl{char}}	&	- screen line movement (with previous 3)				\\
+			\textbf{gm}			& 	- middle of the screen line 							\\
+			\textbf{\textsl{num} |}	&	- to \textsl{num}th column in this line		 			\\
+		\end{tabular}
+
+		\noindent
+		Up-down movement:\\
+		\begin{tabular}{ l l }
+			\textbf{-} 			&	- up on first nonblank character						\\
+			\textbf{+} 			&	- down on first nonblank character						\\
+			\textbf{\_}			&	- down \(N-1\) lines on first nonblank character 			\\
+			\textbf{G}			&	- go to \(N\)th line from top (default: last line)		\\
+			\textbf{gg}			&	- go to \(N\)th line from top (defualt: first line)		\\
+			\textbf{\%}			&	- go to \(N\)\% down in the file (\(N\) must be given)		\\
+			\textbf{gk}			&	- up screen line 									\\
+			\textbf{gj}			&	- down screen line 									\\
+		\end{tabular}
+
+		\columnbreak
+
+		\noindent
+		Object motions:\\
+		\begin{tabular}{ l l }
+			Words:				&													\\
+			\textbf{w}			&	- next word beginning 								\\
+			\textbf{W}			&	- blank-separated next word beginning					\\
+			\textbf{e}			&	- next word end 									\\
+			\textbf{E}			&	- blank-separated next word end 						\\
+			\textbf{ge}			&	- last word end 									\\
+			\textbf{gE}			&	- last blank-separated word end 						\\
+								&													\\
+			Other:				&													\\
+			\textbf{)}			&	- sentence forward 									\\
+			\textbf{(}			&	- sentence backword									\\
+			\textbf{\}}			&	- paragraph forward									\\
+			\textbf{\{}			&	- paragraph backword								\\
+								&													\\
+			\textbf{[[}			&	- section forward, at start							\\
+			\textbf{]]}			&	- section backward, at start							\\
+			\textbf{][}			&	- section forward, at end							\\
+			\textbf{[]}			&	- section backward, at end							\\
+			\textbf{[*}			&	- back to start of a comment /*						\\
+			\textbf{]*}			&	- forward to end of a comment */						\\
+								&													\\
+			\textbf{[(}			&	- back to unclosed (								\\
+			\textbf{[\{}			&	- back to unclosed \{								\\
+			\textbf{[)}			&	- back to unclosed )								\\
+			\textbf{[\}}			&	- back to unclosed \}								\\
+		\end{tabular}\\
+
+		\noindent
+		Pattern searches:\\
+		\begin{tabular}{ l l }
+			\textbf{/\textsl{patt}}	&	- search for \textsl{patt} forward						\\
+			\textbf{?\textsl{patt}}	&	- search for \textsl{patt} backward					\\
+			\textbf{n}			&	- repeat last search 								\\
+			\textbf{N}			&	- repeat last search in opposite direction 				\\
+			\textbf{*}			&	- search forward for the identifier under the cursor		\\
+			\textbf{\#}			&	- search backword for the identifier under the cursor		\\
+			\textbf{g*}			&	- like \textbf{*} with partial maches					\\
+			\textbf{g\#}			&	- like \textbf{\#} with partial maches					\\
+			\textbf{gd}			&	- go to local declaration of identifier under the cursor	\\
+			\textbf{gd}			&	- go to global declaration of identifier under the cursor	\\
+		\end{tabular}\\
+
+		\noindent
+		Marks:
+
+	\end{multicols*}
+\end{document}
