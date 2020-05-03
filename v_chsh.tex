@@ -6,97 +6,118 @@
 \usepackage[polish]{babel}
 
 \usepackage{multicol}
+\usepackage{multirow}
+
 
 \begin{document}
+    \newcommand{\ts}[1]{\ts{#1}}
+    \newcommand{\tb}[1]{\textbf{#1}}
     \begin{multicols*}{3}
 
         \noindent
         {\LARGE Using :help command}\\\\
         \begin{tabular}{ l l }
-            \textbf{:help \textsl{comm}}        &    - Normal mode comamnd                                  \\
-            \textbf{:help v\_\textsl{comm}}     &    - Visual mode command                                  \\
-            \textbf{:help i\_\textsl{comm}}     &    - Insert mode command                                  \\
-            \textbf{:\textsl{comm}}             &    - Command-line command                                 \\
-            \textbf{:help c\_\textsl{comm}}     &    - Command-line editing                                 \\
-            \textbf{:help -\textsl{comm}}       &    - Vim command argument                                 \\
-            \textbf{:help '\textsl{comm}'}      &    - Option                                               \\
-            \textbf{:help /\textsl{comm}}       &    - Regular expression                                   \\
-            \textbf{:helpgrep \textsl{comm}}    &    - grep for commands                                    \\
-        \end{tabular}
+            \tb{:help \ts{comm}}                &    - Normal mode comamnd                                  \\
+            \tb{:help v\_\ts{comm}}             &    - Visual mode command                                  \\
+            \tb{:help i\_\ts{comm}}             &    - Insert mode command                                  \\
+            \tb{:\ts{comm}}                     &    - Command-line command                                 \\
+            \tb{:help c\_\ts{comm}}             &    - Command-line editing                                 \\
+            \tb{:help -\ts{comm}}               &    - Vim command argument                                 \\
+            \tb{:help '\ts{comm}'}              &    - Option                                               \\
+            \tb{:help /\ts{comm}}               &    - Regular expression                                   \\
+            \tb{:helpgrep \ts{comm}}            &    - grep for commands                                    \\
+        \end{tabular}\\
 
         \noindent
         Vim documentation movement commands\\
         \begin{tabular}{ l l }
-            \textbf{CTRL- ]}                    &    - follow the tag under the cursor                      \\
-            \textbf{CTRL-T}                     &    - jump back                                            \\
+            \tb{<C-]>}                          &    - follow the tag under the cursor                      \\
+            \tb{<C-T>}                          &    - jump back                                            \\
         \end{tabular}\\\\
+
+        \noindent
+        {\LARGE Digraphs}\\
+        \begin{tabular}{ l l }
+           \tb{:dig}                            &    - show current list  of characters                     \\
+           \multicolumn{2}{l}{In insert mode:}                                                              \\
+           \tb{:<C-K> \ts{ch1 ch2}}             &    - enter digraph                                        \\
+        \end{tabular}\\\\
+
+        \noindent
+        {\LARGE Special inserts}\\
+        \begin{tabular}{ l l }
+            \tb{:r \ts{file}}                   &    - insert contents of the \ts{file} below the cursor    \\
+            \tb{:r! \ts{command}}               &    - insert the standart output of \ts{command}           \\
+        \end{tabular}\\\\
+
         \newpage
+
         \noindent
         {\Huge Vim movement}\\
         Can be prepended with number \(N\)\\\\
         \begin{tabular}{ l l }
-            \textbf{h, j, k, l}                 &    - movement keys                                        \\
-            \textbf{f\textsl{char}}             &    - to next occurence of \textsl{char}                   \\
-            \textbf{F\textsl{char}}             &    - to previous occurence of \textsl{char}               \\
-            \textbf{t\textsl{char}}             &    - till before next occurence of \textsl{char}          \\
-            \textbf{T\textsl{char}}             &    - till before previous occurence of \textsl{char}      \\
-            \textbf{;}                          &    - repeat last \textbf{f, F, t, T}                      \\
-            \textbf{,}                          &    - repeat \textbf{f, F, t, T} in opposite direction     \\
-        \end{tabular}
+            \tb{h, j, k, l}                     &    - movement keys                                        \\
+            \tb{f\ts{char}}                     &    - to next occurence of \ts{char}                       \\
+            \tb{F\ts{char}}                     &    - to previous occurence of \ts{char}                   \\
+            \tb{t\ts{char}}                     &    - till before next occurence of \ts{char}              \\
+            \tb{T\ts{char}}                     &    - till before previous occurence of \ts{char}          \\
+            \tb{;}                              &    - repeat last \tb{f, F, t, T}                          \\
+            \tb{,}                              &    - repeat \tb{f, F, t, T} in opposite direction         \\
+        \end{tabular}\\\\
 
         \noindent
         {\large Left-right movement:}\\
         \begin{tabular}{ l l }
-            \textbf{0}                          &    - first character in line                              \\
-            \textbf{\^}                         &    - first nonblank character in line                     \\
-            \textbf{\$}                         &    - last character in line                               \\
-            \textbf{g\textsl{char}}             &    - screen line movement (with previous 3)               \\
-            \textbf{gm}                         &    - middle of the screen line                            \\
-            \textbf{\textsl{num} |}             &    - to \textsl{num}th column in this line                \\
-        \end{tabular}
+            \tb{0}                              &    - first character in line                              \\
+            \tb{\^}                             &    - first nonblank character in line                     \\
+            \tb{\$}                             &    - last character in line                               \\
+            \tb{g\ts{char}}                     &    - screen line movement (with previous 3)               \\
+            \tb{gm}                             &    - middle of the screen line                            \\
+            \tb{\ts{num} |}                     &    - to \ts{num}th column in this line                    \\
+        \end{tabular}\\\\
 
         \noindent
         {\large Up-down movement:}\\
         \begin{tabular}{ l l }
-            \textbf{-}                          &    - up on first nonblank character                       \\
-            \textbf{+}                          &    - down on first nonblank character                     \\
-            \textbf{\_}                         &    - down \(N-1\) lines on first nonblank character       \\
-            \textbf{G}                          &    - go to \(N\)th line from top (default: last line)     \\
-            \textbf{gg}                         &    - go to \(N\)th line from top (defualt: first line)    \\
-            \textbf{\%}                         &    - go to \(N\)\% down in the file (\(N\) must be given) \\
-            \textbf{gk}                         &    - up screen line                                       \\
-            \textbf{gj}                         &    - down screen line                                     \\
-        \end{tabular}
+            \tb{-}                              &    - up on first nonblank character                       \\
+            \tb{+}                              &    - down on first nonblank character                     \\
+            \tb{\_}                             &    - down \(N-1\) lines on first nonblank character       \\
+            \tb{G}                              &    - go to \(N\)th line from top (default: last line)     \\
+            \tb{gg}                             &    - go to \(N\)th line from top (defualt: first line)    \\
+            \tb{\%}                             &    - go to \(N\)\% down in the file (\(N\) must be given) \\
+            \tb{gk}                             &    - up screen line                                       \\
+            \tb{gj}                             &    - down screen line                                     \\
+        \end{tabular}\\\\
 
 
         \noindent
         {\large Object motions:}\\
         \begin{tabular}{ l l }
-            Words:                              &                                                           \\
-            \textbf{w}                          &    - next word beginning                                  \\
-            \textbf{W}                          &    - blank-separated next word beginning                  \\
-            \textbf{e}                          &    - next word end                                        \\
-            \textbf{E}                          &    - blank-separated next word end                        \\
-            \textbf{ge}                         &    - last word end                                        \\
-            \textbf{gE}                         &    - last blank-separated word end                        \\
+            \multicolumn{2}{l}{Words:}                                                                      \\
+            \tb{w}                              &    - next word beginning                                  \\
+            \tb{W}                              &    - blank-separated next word beginning                  \\
+            \tb{e}                              &    - next word end                                        \\
+            \tb{E}                              &    - blank-separated next word end                        \\
+            \tb{ge}                             &    - last word end                                        \\
+            \tb{gE}                             &    - last blank-separated word end                        \\
                                                 &                                                           \\
-            Other:                              &                                                           \\
-            \textbf{)}                          &    - sentence forward                                     \\
-            \textbf{(}                          &    - sentence backword                                    \\
-            \textbf{\}}                         &    - paragraph forward                                    \\
-            \textbf{\{}                         &    - paragraph backword                                   \\
+            \multicolumn{2}{l}{Other:}                                                                      \\
+            \tb{)}                              &    - sentence forward                                     \\
+            \tb{(}                              &    - sentence backword                                    \\
+            \tb{\}}                             &    - paragraph forward                                    \\
+            \tb{\{}                             &    - paragraph backword                                   \\
                                                 &                                                           \\
-            \textbf{[[}                         &    - section forward, at start                            \\
-            \textbf{]]}                         &    - section backward, at start                           \\
-            \textbf{][}                         &    - section forward, at end                              \\
-            \textbf{[]}                         &    - section backward, at end                             \\
-            \textbf{[*}                         &    - back to start of a comment /*                        \\
-            \textbf{]*}                         &    - forward to end of a comment */                       \\
+            \tb{[[}                             &    - section forward, at start                            \\
+            \tb{]]}                             &    - section backward, at start                           \\
+            \tb{][}                             &    - section forward, at end                              \\
+            \tb{[]}                             &    - section backward, at end                             \\
+            \tb{[*}                             &    - back to start of a comment /*                        \\
+            \tb{]*}                             &    - forward to end of a comment */                       \\
                                                 &                                                           \\
-            \textbf{[(}                         &    - back to unclosed (                                   \\
-            \textbf{[\{}                        &    - back to unclosed \{                                  \\
-            \textbf{[)}                         &    - back to unclosed )                                   \\
-            \textbf{[\}}                        &    - back to unclosed \}                                  \\
+            \tb{[(}                             &    - back to unclosed (                                   \\
+            \tb{[\{}                            &    - back to unclosed \{                                  \\
+            \tb{[)}                             &    - back to unclosed )                                   \\
+            \tb{[\}}                            &    - back to unclosed \}                                  \\
         \end{tabular}\\
 
         \columnbreak
@@ -104,73 +125,73 @@
         \noindent
         {\large Pattern searches:}\\
         \begin{tabular}{ l l }
-            \textbf{/\textsl{patt}}             &    - search for \textsl{patt} forward                     \\
-            \textbf{?\textsl{patt}}             &    - search for \textsl{patt} backward                    \\
-            \textbf{n}                          &    - repeat last search                                   \\
-            \textbf{N}                          &    - repeat last search in opposite direction             \\
-            \textbf{*}                          &    - search forward for the ident. under the cursor       \\
-            \textbf{\#}                         &    - search backword for the ident. under the cursor      \\
-            \textbf{g*}                         &    - like \textbf{*} with partial maches                  \\
-            \textbf{g\#}                        &    - like \textbf{\#} with partial maches                 \\
-            \textbf{gd}                         &    - go to local decl. of ident. under the cursor         \\
-            \textbf{gd}                         &    - go to global decl. of ident. under the cursor        \\
+            \tb{/\ts{patt}}                     &    - search for \ts{patt} forward                         \\
+            \tb{?\ts{patt}}                     &    - search for \ts{patt} backward                        \\
+            \tb{n}                              &    - repeat last search                                   \\
+            \tb{N}                              &    - repeat last search in opposite direction             \\
+            \tb{*}                              &    - search forward for the ident. under the cursor       \\
+            \tb{\#}                             &    - search backword for the ident. under the cursor      \\
+            \tb{g*}                             &    - like \tb{*} with partial maches                      \\
+            \tb{g\#}                            &    - like \tb{\#} with partial maches                     \\
+            \tb{gd}                             &    - go to local decl. of ident. under the cursor         \\
+            \tb{gd}                             &    - go to global decl. of ident. under the cursor        \\
         \end{tabular}\\
 
         \noindent
         {\large Marks:}\\
         \begin{tabular}{ l l }
-            \textbf{m\{\textsl{a-Z}\}}          &    - mark current position with mark \textsl{a-zA-Z}      \\
-            \textbf{`\{\textsl{a-z}\}}          &    - go to mark \textsl{a-z} in current file              \\
-            \textbf{`\{\textsl{A-Z}\}}          &    - go to mark \textsl{A-Z} in any file                  \\
-            \textbf{`\{\textsl{0-9}\}}          &    - go to the position where Vim was prev. closed        \\
-            \textbf{``}                         &    - go to the position before the last jump              \\
-            \textbf{`"}                         &    - go to the position where last editing this line      \\
-            \textbf{`[}                         &    - go to the start of prev. operated or put text        \\
-            \textbf{`]}                         &    - go to the end of prev. operated or put text          \\
-            \textbf{`<}                         &    - go to the start of the prev. Visual area             \\
-            \textbf{`>}                         &    - go to the end of the prev. Visual area               \\
-            \textbf{`.}                         &    - go to the position of the last change in the file    \\
-            \textbf{'}                          &    - same as `, but move to the first nonblank in the line\\
+            \tb{m\{\ts{a-Z}\}}                  &    - mark current position with mark \ts{a-zA-Z}          \\
+            \tb{`\{\ts{a-z}\}}                  &    - go to mark \ts{a-z} in current file                  \\
+            \tb{`\{\ts{A-Z}\}}                  &    - go to mark \ts{A-Z} in any file                      \\
+            \tb{`\{\ts{0-9}\}}                  &    - go to the position where Vim was prev. closed        \\
+            \tb{``}                             &    - go to the position before the last jump              \\
+            \tb{`"}                             &    - go to the position where last editing this line      \\
+            \tb{`[}                             &    - go to the start of prev. operated or put text        \\
+            \tb{`]}                             &    - go to the end of prev. operated or put text          \\
+            \tb{`<}                             &    - go to the start of the prev. Visual area             \\
+            \tb{`>}                             &    - go to the end of the prev. Visual area               \\
+            \tb{`.}                             &    - go to the position of the last change in the file    \\
+            \tb{'}                              &    - same as `, but move to the first nonblank in the line\\
                                                 &                                                           \\
-            \textbf{:marks}                     &    - print the active marks                               \\
-            \textbf{CTRL-O}                     &    - go to the \textsl{N}th older position in jump list   \\
-            \textbf{CTRL-I}                     &    - go to the \textsl{N}th newer position in jump list   \\
-            \textbf{:ju}                        &    - print the jump list                                  \\
+            \tb{:marks}                         &    - print the active marks                               \\
+            \tb{<C-O>}                          &    - go to the \ts{N}th older position in jump list       \\
+            \tb{<C-I>}                          &    - go to the \ts{N}th newer position in jump list       \\
+            \tb{:ju}                            &    - print the jump list                                  \\
         \end{tabular}\\
 
         \noindent
         {\large Other motions:}\\
         \begin{tabular}{ l l }
-            \textbf{\%}                         &    - go to the next brace or to it's match                \\
-            \textbf{H}                          &    - go to the beg. of \textsl{N}th line in the window    \\
-            \textbf{M}                          &    - go to the beg. of middle line in the window          \\
-            \textbf{L}                          &    - go to the beg. of \textsl{N}th line from bottom      \\
-            \textbf{go}                         &    - go to the \textsl{N}th byte in the file              \\
+            \tb{\%}                             &    - go to the next brace or to it's match                \\
+            \tb{H}                              &    - go to the beg. of \ts{N}th line in the window        \\
+            \tb{M}                              &    - go to the beg. of middle line in the window          \\
+            \tb{L}                              &    - go to the beg. of \ts{N}th line from bottom          \\
+            \tb{go}                             &    - go to the \ts{N}th byte in the file                  \\
         \end{tabular}\\
 
         \noindent
         {\large Tags:}\\
         \begin{tabular}{ l l }
-            \textbf{:ta \textsl{tag}}           &    - jump to \textsl{tag}                                 \\
-            \textbf{:\textsl{num}ta}            &    - jump to \textsl{num}th newer tag in tag list         \\
-            \textbf{CTRL-]}                     &    - jump to tag under the cursor                         \\
-            \textbf{:ts \textsl{tag}}           &    - list matching tags and select one to jump to         \\
-            \textbf{:tj \textsl{tag}}           &    - jump to \textsl{tag} or select one if multiple match \\
-            \textbf{:lt \textsl{tag}}           &    - jump to \textsl{tag}, add maching tags to loc. list  \\
-            \textbf{:tags}                      &    - print tag list                                       \\
-            \textbf{CTRL-T}                     &    - jump \textsl{N} tags back                            \\
-            \textbf{:\textsl{num}po}            &    - jump back from \textsl{num}'th older tag in list     \\
-            \textbf{:\textsl{num}tn}            &    - jump to \textsl{num}'th next matching tag            \\
-            \textbf{:\textsl{num}tp}            &    - jump to \textsl{num}'th previous matching tag        \\
-            \textbf{:\textsl{num}tr}            &    - jump to \textsl{num}'th matching tag                 \\
-            \textbf{:tl}                        &    - jump to last maching tag                             \\
+            \tb{:ta \ts{tag}}                   &    - jump to \ts{tag}                                     \\
+            \tb{:\ts{num}ta}                    &    - jump to \ts{num}th newer tag in tag list             \\
+            \tb{<C-]>}                          &    - jump to tag under the cursor                         \\
+            \tb{:ts \ts{tag}}                   &    - list matching tags and select one to jump to         \\
+            \tb{:tj \ts{tag}}                   &    - jump to \ts{tag} or select one if multiple match     \\
+            \tb{:lt \ts{tag}}                   &    - jump to \ts{tag}, add maching tags to loc. list      \\
+            \tb{:tags}                          &    - print tag list                                       \\
+            \tb{<C-T>}                          &    - jump \ts{N} tags back                                \\
+            \tb{:\ts{num}po}                    &    - jump back from \ts{num}'th older tag in list         \\
+            \tb{:\ts{num}tn}                    &    - jump to \ts{num}'th next matching tag                \\
+            \tb{:\ts{num}tp}                    &    - jump to \ts{num}'th previous matching tag            \\
+            \tb{:\ts{num}tr}                    &    - jump to \ts{num}'th matching tag                     \\
+            \tb{:tl}                            &    - jump to last maching tag                             \\
                                                 &                                                           \\
-            \textbf{:pt \textsl{tag}}           &    - open a preview window to show \textsl{tag}           \\
-            \textbf{CTRL-W \}}                  &    - open tag under the cursor in preview window          \\
-            \textbf{:pts}                       &    - like \textbf{:ts} but show tag in preview window     \\
-            \textbf{:ptj}                       &    - like \textbf{:tj} but show tag in preview window     \\
-            \textbf{:pc}                        &    - close preview window                                 \\
-            \textbf{CTRL-W z}                   &    - close preview window                                 \\
+            \tb{:pt \ts{tag}}                   &    - open a preview window to show \ts{tag}               \\
+            \tb{<C-W> \}}                       &    - open tag under the cursor in preview window          \\
+            \tb{:pts}                           &    - like \tb{:ts} but show tag in preview window         \\
+            \tb{:ptj}                           &    - like \tb{:tj} but show tag in preview window         \\
+            \tb{:pc}                            &    - close preview window                                 \\
+            \tb{<C-W> z}                        &    - close preview window                                 \\
         \end{tabular}
 
         \columnbreak
@@ -178,65 +199,155 @@
         \noindent
         {\Huge Scrolling}\\
         \begin{tabular}{ l l }
-            Downwards                           &                                                           \\
-            \textbf{CTRL-E}                     &    - scroll window \textsl{N} lines downwards             \\
-            \textbf{CTRL-D}                     &    - like \textbf{CTRL-E} but default is 1/2 window       \\
-            \textbf{CTRL-F}                     &    - scroll window \textsl{N} pages downwards (Forward)   \\
+            \multicolumn{2}{l}{Downwards}                                                                   \\
+            \tb{<C-E>}                          &    - scroll window \ts{N} lines downwards                 \\
+            \tb{<C-D>}                          &    - like \tb{<C-E>} but default is 1/2 window            \\
+            \tb{<C-F>}                          &    - scroll window \ts{N} pages downwards (Forward)       \\
                                                 &                                                           \\
-            Upwards                             &                                                           \\
-            \textbf{CTRL-Y}                     &    - scroll window \textsl{N} lines upwards               \\
-            \textbf{CTRL-U}                     &    - like \textbf{CTRL-Y} but default is 1/2 window       \\
-            \textbf{CTRL-B}                     &    - scroll window \textsl{N} pages upward (Backward)     \\
+            \multicolumn{2}{l}{Upwards}                                                                     \\
+            \tb{<C-Y>}                          &    - scroll window \ts{N} lines upwards                   \\
+            \tb{<C-U>}                          &    - like \tb{<C-Y>} but default is 1/2 window            \\
+            \tb{<C-B>}                          &    - scroll window \ts{N} pages upward (Backward)         \\
                                                 &                                                           \\
-            \textbf{zt}                         &    - redraw current line at the top of the window         \\
-            \textbf{zz}                         &    - redraw current line at the middle of the window      \\
-            \textbf{z.}                         &    - like \textbf{zz}                                     \\
-            \textbf{zb}                         &    - redraw current line at the bottom of the window      \\
-            \textbf{z-}                         &    - like \textbf{zb}                                     \\
+            \tb{zt}                             &    - redraw current line at the top of the window         \\
+            \tb{zz}                             &    - redraw current line at the middle of the window      \\
+            \tb{z.}                             &    - like \tb{zz}                                         \\
+            \tb{zb}                             &    - redraw current line at the bottom of the window      \\
+            \tb{z-}                             &    - like \tb{zb}                                         \\
         \end{tabular}
 
         \noindent
         {\Huge Inserting text}\\
         \begin{tabular}{ l l }
-            \textbf{a}                          &    - append text after the cursor                         \\
-            \textbf{A}                          &    - append text at the end of the line                   \\
-            \textbf{i}                          &    - insert text before the cursor                        \\
-            \textbf{I}                          &    - insert text before first non-blank in the line       \\
-            \textbf{gI}                         &    - insert text in column 1                              \\
-            \textbf{o}                          &    - open the line below the current line                 \\
-            \textbf{O}                          &    - open the line above the current line                 \\
+            \tb{a}                              &    - append text after the cursor                         \\
+            \tb{A}                              &    - append text at the end of the line                   \\
+            \tb{i}                              &    - insert text before the cursor                        \\
+            \tb{I}                              &    - insert text before first non-blank in the line       \\
+            \tb{gI}                             &    - insert text in column 1                              \\
+            \tb{o}                              &    - open the line below the current line                 \\
+            \tb{O}                              &    - open the line above the current line                 \\
                                                 &                                                           \\
-            In visual block:                    &                                                           \\
-            \textbf{I}                          &    - insert the same text in front of all selected lines  \\
-            \textbf{A}                          &    - append the same text after all selected lines        \\
+            \multicolumn{2}{l}{In visual block:}                                                            \\
+            \tb{I}                              &    - insert the same text in front of all selected lines  \\
+            \tb{A}                              &    - append the same text after all selected lines        \\
         \end{tabular}
 
         \noindent
         {\Huge Insert mode keys:}\\
         \begin{tabular}{ l l }
-            \textbf{CTRL-O \textsl{comm}}       &    - execute command and return to Insert mode            \\
-            \textbf{CTRL-V \textsl{char}}       &    - insert character literally, or enter decimal byte val\\
-            \textbf{CTRL-J}                     &    - begin new line                                       \\
+            \tb{<C-O> \ts{comm}}                &    - execute command and return to Insert mode            \\
+            \tb{<C-V> \ts{char}}                &    - insert character literally, or enter decimal byte val\\
+            \tb{<C-J>}                          &    - begin new line                                       \\
                                                 &                                                           \\
-            \textbf{CTRL-E}                     &    - insert the character from below the cursor           \\
-            \textbf{CTRL-Y}                     &    - insert the character from above the cursor           \\
+            \tb{<C-E>}                          &    - insert the character from below the cursor           \\
+            \tb{<C-Y>}                          &    - insert the character from above the cursor           \\
                                                 &                                                           \\
-            \textbf{CTRL-A}                     &    - insert previously inserted text                      \\
-            \textbf{CTRL-@}                     &    - insert previously inserted text and stop Insert mode \\
+            \tb{<C-A>}                          &    - insert previously inserted text                      \\
+            \tb{<C-@>}                          &    - insert previously inserted text and stop Insert mode \\
                                                 &                                                           \\
-            \textbf{CTRL-R \textsl{0-9a-z}}     &    - insert the context of the register                   \\
-            \textbf{CTRL-N}                     &    - auto complete with search forward                    \\
-            \textbf{CTRL-P}                     &    - auto complete with search backward                   \\
-            \textbf{CTRL-X}                     &    - auto complete the word various ways                  \\
+            \tb{<C-R> \ts{0-9a-z}}              &    - insert the context of the register                   \\
+            \tb{<C-N>}                          &    - auto complete with search forward                    \\
+            \tb{<C-P>}                          &    - auto complete with search backward                   \\
+            \tb{<C-X>}                          &    - auto complete the word various ways                  \\
                                                 &                                                           \\
-            \textbf{CTRL-H}                     &    - delete the character before the cursor               \\
-            \textbf{CTRL-W}                     &    - delete the word before the cursor                    \\
-            \textbf{CTRL-U}                     &    - delete all entered characters in the current line    \\
+            \tb{<C-H>}                          &    - delete the character before the cursor               \\
+            \tb{<C-W>}                          &    - delete the word before the cursor                    \\
+            \tb{<C-U>}                          &    - delete all entered characters in the current line    \\
                                                 &                                                           \\
-            \textbf{CTRL-T}                     &    - insert one indent before the line                    \\
-            \textbf{CTRL-D}                     &    - delete one indent before the line                    \\
-            \textbf{0 CTRL-D}                   &    - delete all indent before the line                    \\
-            \textbf{\^ \ CTRL-D}                &    - delete all indent before the line, restore it in next\\
+            \tb{<C-T>}                          &    - insert one indent before the line                    \\
+            \tb{<C-D>}                          &    - delete one indent before the line                    \\
+            \tb{0 <C-D>}                        &    - delete all indent before the line                    \\
+            \tb{\^ \ <C-D>}                     &    - delete all indent before the line, restore it in next\\
+        \end{tabular}
+
+        \columnbreak
+
+        \noindent
+        {\Huge Deleting text}\\
+        \begin{tabular}{ l l }
+            \tb{x}                              &    - delete \ts{N} chars under and after the cursor       \\
+            \tb{<DEL>}                          &    - delete \ts{N} chars under and after the cursor       \\
+            \tb{X}                              &    - delete \ts{N} chars before the cursor                \\
+            \tb{d\ts{motion}}                   &    - delete the text under the \ts{motion}                \\
+            \tb{dd}                             &    - delete \ts{N} lines                                  \\
+            \tb{D}                              &    - delete to the end of the line and \ts{N}-1 lines     \\
+            \tb{J}                              &    - join \ts{N}-1 lines                                  \\
+            \tb{gJ}                             &    - like \tb{J}, but without inserting spaces            \\
+            \tb{:\ts{range}d \ts{x}}            &    - delete \ts{range} lines into register \ts{x}         \\
+        \end{tabular}
+
+        \noindent
+        {\Huge Copying and moving text}\\
+        \begin{tabular}{ l l }
+            \tb{"\ts{char}}                     &    - use reg. \ts{char} for the next del, yank or put     \\
+            \tb{:reg}                           &    - show the contents of all registers                   \\
+            \tb{:reg \ts{arg}}                  &    - show the contents of registers in \ts{arg}           \\
+            \tb{y \ts{motion}}                  &    - yank the text under the \ts{motion}                  \\
+            \tb{yy}                             &    - yank \ts{N} lines into a register                    \\
+            \tb{Y}                              &    - yank \ts{N} lines into a register                    \\
+            \tb{p}                              &    - put the register after the cursor position           \\
+            \tb{P}                              &    - put the register before the cursor position          \\
+            \tb{]p}                             &    - like \tb{p}, but adjust indent to current line       \\
+            \tb{[p}                             &    - like \tb{P}, but adjust indent to current line       \\
+            \tb{gp}                             &    - like \tb{p}, but leave cursor after the new text     \\
+            \tb{gP}                             &    - like \tb{P}, but leave cursor after the new text     \\
+        \end{tabular}\\\\
+
+        \noindent
+        {\Huge Changing text}\\
+        \begin{tabular}{ l l }
+            \tb{r\ts{char}}                     &    - replace \ts{N} chars under the crusor with char      \\
+            \tb{gr\ts{char}}                    &    - like \tb{r} without affecting layout                 \\
+            \tb{R}                              &    - enter Replace mode                                   \\
+            \tb{gR}                             &    - like \tb{R} withou affecting layout                  \\
+            \multicolumn{2}{l}{In viusal block mode:}                                                       \\
+            \tb{r}                              &    - replace each character of selected text              \\
+                                                &                                                           \\
+            \multicolumn{2}{l}{(change - delete text, enter Insert mode)}                                   \\
+            \tb{c\ts{motion}}                   &    - change the text under the \ts{motion}                \\
+            \tb{cc}                             &    - change \ts{N} lines                                  \\
+            \tb{S}                              &    - change \ts{N} lines                                  \\
+            \tb{C}                              &    - change to the end of the line and \ts{N}-1 lines     \\
+            \tb{s}                              &    - change \ts{N} characters                             \\
+            \multicolumn{2}{l}{In visual block mode:}                                                       \\
+            \tb{c}                              &    - change each of the selected lines with the text      \\
+            \tb{C}                              &    - change each of the selected lines until eof with text\\
+                                                &                                                           \\
+            \tb{\(\sim\)}                       &    - switch case for \ts{N} characters, advance cursor    \\
+            \tb{g\(\sim\)\ts{motion}}           &    - switch case of text under \ts{motion}                \\
+            \tb{gu\ts{motion}}                  &    - make the text under the \ts{motion} lowercase        \\
+            \tb{gU\ts{motion}}                  &    - make the text under the \ts{motion} uppercase        \\
+            \tb{g?\ts{motion}}                  &    - perform rot13 encoding on the text under the motion  \\
+            \multicolumn{2}{l}{In visual mode:}                                                             \\
+            \tb{\(\sim\)}                       &    - switch case of highlighted text                      \\
+            \tb{u}                              &    - make highlighted text lowercase                      \\
+            \tb{U}                              &    - make highlighted text uppercase                      \\
+            \tb{g?}                             &    - perform rot13 encoding on highlighted text           \\
+        \end{tabular}
+
+        \columnbreak
+
+        \noindent
+        \begin{tabular}{ l l }
+            \tb{<C-A>}                          &    - add \ts{N} to the number at/after the cursor         \\
+            \tb{<C-X>}                          &    - sub. \ts{N} from the number at/after the cursor      \\
+                                                &                                                           \\
+            \tb{<\ts{motion}}                   &    - move lines under \ts{motion} left with shiftwidth    \\
+            \tb{<<}                             &    - move \ts{N} lines one shiftwidht left                \\
+            \tb{>\ts{motion}}                   &    - like \tb{<}, but move right                          \\
+            \tb{>>}                             &    - like \tb{<<}, but move right                         \\
+            \tb{gq\ts{motion}}                  &    - format lines under \ts{motion} to 'textwidht' len    \\
+            \tb{:\ts{range}ce}                  &    - center the lines in \ts{range}                       \\
+            \tb{:\ts{range}le}                  &    - left-align the lines in \ts{range}                   \\
+            \tb{:\ts{range}ri}                  &    - right-align the lines in \ts{range}                  \\
+        \end{tabular}
+
+        \noindent
+        {\Huge Complex changes}\\
+        \begin{tabular}{ l l }
+            \tb{!\ts{mot} \ts{comm}}            &    - filter the lines that are under \ts{mot} with comm   \\
+            \tb{!!\ts{comom}}                   &    - fliter \ts{N} lines through \ts{comm}                \\
+            \
         \end{tabular}
 
     \end{multicols*}
